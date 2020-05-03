@@ -11,9 +11,8 @@ jobs:
           name: Installing dependencies
           command: |
             set -x
-            apk add --no-cache --no-progress bash curl
-            curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
+            apk add --no-cache --no-progress bash py-pip python-dev libffi-dev openssl-dev gcc libc-dev make
+            pip install --quiet docker-compose
       - run:
           name: Logging Docker and Application information
           command: |
